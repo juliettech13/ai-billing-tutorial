@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@polar-sh/nextjs": "^1.1.0",
+    "@polar-sh/polar": "link:/Users/juliettech.eth/polar/polar/clients/packages/polar",
+    "@polar-sh/sdk": "^1.0.2",
+    "ai": "^7.0.149",
     "next": "16.4.3",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
