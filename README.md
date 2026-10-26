@@ -9,8 +9,8 @@ By the end a customer can check out in sandbox, your server receives the webhook
 ## 1. Create the app and install dependencies
 
 ```bash
-npx create-next-app@latest margin --ts --app --eslint --use-pnpm --yes
-cd margin
+npx create-next-app@latest ai-billing --ts --app --eslint --use-pnpm --yes
+cd ai-billing
 pnpm add @polar-sh/sdk @polar-sh/nextjs ai
 ```
 
@@ -49,7 +49,7 @@ The Next.js routes in this tutorial pass `environment: "sandbox"`. A production 
 
 [Usage-based billing](https://polar.sh/docs/features/usage-based-billing/introduction) is a [meter](https://polar.sh/docs/features/usage-based-billing/meters), [credits](https://polar.sh/docs/features/benefits/credits) on that meter, and [prices on products](https://polar.sh/docs/features/products). This step writes all three in `polar.config.ts` and applies that file. After apply, the dashboard will not save catalog edits. If you change the file and run `polar config apply` again.
 
--- `@polar-sh/polar` is not on npm yet, and `polar config` is a preview command. So we'll need to clone Polar outside your app, build that package, and run the preview CLI from the clone. The Next app stays in `margin/`. You need [Node 22+](https://nodejs.org) and [Bun 1.4](https://bun.sh/docs/installation).
+-- `@polar-sh/polar` is not on npm yet, and `polar config` is a preview command. So we'll need to clone Polar outside your app, build that package, and run the preview CLI from the clone. The Next app stays in `ai-billing/`. You need [Node 22+](https://nodejs.org) and [Bun 1.4](https://bun.sh/docs/installation).
 
 ```bash
 git clone https://github.com/polarsource/polar.git ~/polar
@@ -64,13 +64,13 @@ Add this to `~/.zshrc`, then run `source ~/.zshrc`. The [published CLI](https://
 polar() { POLAR_PREVIEW=1 bun ~/polar/clients/packages/cli/src/cli.ts "$@"; }
 ```
 
-Back in `margin`:
+Back in `ai-billing`:
 
 ```bash
 pnpm add ~/polar/clients/packages/polar zod
 ```
 
-`polar.config.ts` in the root of `margin`:
+`polar.config.ts` in the root of `ai-billing`:
 
 ```ts
 import { defineConfig, perMillion, usd } from '@polar-sh/polar'
